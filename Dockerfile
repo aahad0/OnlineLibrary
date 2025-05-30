@@ -1,11 +1,18 @@
-FROM payara/server-full:5.2022.5-jdk17
+FROM eclipse-temurin:17-jdk
 
-# Copy your WAR file into the deployment folder
-COPY OnlineLibrary.war $DEPLOY_DIR
+# Install GlassFish
+RUN apt-get update && \
+    apt-get install -y curl unzip && \
+    curl -L -o glassfish.zip https://download.eclipse.org/glassfish/glassfish-6.2.5.zip && \
+    unzip glassfish.zip -d /opt && \
+    rm glassfish.zip
 
-# Expose the default HTTP port
+ENV GLASSFISH_HOME=/opt/glassfish6
+ENV PATH=$GLASSFISH_HOME/bin:$PATH
+
+# COPY the correct WAR file
+COPY OnlineLibrary.war $GLASSFISH_HOME/glassfish/domains/domain1/autodeploy/
+
 EXPOSE 8080
 
-# Start Payara (which is compatible with Jakarta EE)
 CMD ["asadmin", "start-domain", "-v"]
-
