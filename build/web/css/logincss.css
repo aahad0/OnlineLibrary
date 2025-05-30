@@ -1,0 +1,125 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full page setup */
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.background {
+    background-image: url('/LMSystem/images/image.jpg'); /* Change this path to your actual image */
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Intro section */
+.intro-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Login section */
+.login-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    color: #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.login-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.login-form button {
+    margin-top: 15px;
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #357ab8;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: #4a90e2;
+    text-decoration: none;
+}

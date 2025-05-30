@@ -1,0 +1,80 @@
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('/LMSystem/images/img1.jpg'); /* ✅ Change as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Dark overlay */
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darkness level */
+    z-index: 1;
+}
+
+/* Main card container */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Headings */
+.card h2, .card h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Book list */
+.book-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    text-align: left;
+}
+
+.book-list li {
+    margin-bottom: 12px;
+}
+
+.book-list a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.book-list a:hover {
+    text-decoration: underline;
+}
+
+/* No books message */
+.no-books {
+    color: #cc0000;
+    font-weight: bold;
+    margin-top: 20px;
+}
