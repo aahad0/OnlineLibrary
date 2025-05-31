@@ -28,62 +28,20 @@ public class SemesterServlet extends HttpServlet {
    // @Override
     protected void processRequest(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
-
-    List<String> semesters = new ArrayList<>();
-
-    try {
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT name FROM semesters");
-        while (rs.next()) {
-            semesters.add(rs.getString("name"));
-            
+        List<String> semesters = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT name FROM semesters");
+            while (rs.next()) {
+                semesters.add(rs.getString("name"));         
+            }
+            System.out.println(semesters);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        System.out.println(semesters);
-    } catch (SQLException e) {
-        e.printStackTrace();
+        req.setAttribute("semesters", semesters);
+        req.getRequestDispatcher("sem").forward(req, resp); // ✅ Make sure your JSP is named correctly
     }
-
-    req.setAttribute("semesters", semesters);
-    req.getRequestDispatcher("sem").forward(req, resp); // ✅ Make sure your JSP is named correctly
-}
-   // @Override
-//protected void procesRequest(HttpServletRequest req, HttpServletResponse resp)
-//        throws ServletException, IOException {
-//
-//    String semesterName = req.getParameter("semester");
-//    if (semesterName != null) {
-//        resp.sendRedirect("subjectList.jsp?semester=" + semesterName); // or call SubjectServlet
-//    } else {
-//        resp.sendRedirect("SemesterServlet"); // fallback in case nothing selected
-//    }
-//}
-
-
-//    protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        // Fetch all semesters and forward to selectSemester.jsp
-//        List<String> semesters = Arrays.asList("Semester 1", "Semester 2", "Semester 3");
-//
-//        req.setAttribute("semesters", semesters);
-//        req.getRequestDispatcher("sem").forward(req, resp);
-//        try {
-//            Statement stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM semesters");
-//            while (rs.next()) {
-//                semesters.add(rs.getString("name"));
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        req.setAttribute("semesters", semesters);
-//        req.getRequestDispatcher("selectSemester.jsp").forward(req, resp);
-//    //}
-//
-//   // protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        // User selected semester, redirect to subjectList.jsp with semester param
-//        String semesterName = req.getParameter("semester");
-//        resp.sendRedirect("subjectList.jsp?semester=" + semesterName);
-//    }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
