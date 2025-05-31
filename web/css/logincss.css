@@ -12,12 +12,13 @@ body, html {
 }
 
 .background {
-    background-image: url('/LMSystem/images/image.jpg'); /* Change this path to your actual image */
+    background-image: url('/OnlineLibrary/images/image.jpg'); /* Change this path to your actual image */
     background-size: cover;
     background-position: center;
     height: 100%;
     width: 100%;
     position: relative;
+    background-repeat: no-repeat;
 }
 
 .overlay {

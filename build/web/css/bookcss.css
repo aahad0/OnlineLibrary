@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('/LMSystem/images/img1.jpg'); /* ✅ Change as needed */
-    background-size: cover;
+    background-image: url('/OnlineLibrary/images/img1.jpg'); /* ✅ Change as needed */
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
